@@ -62,7 +62,9 @@ nav a.active::after {
   padding: 10px 6%; text-align: center;
   display: flex; align-items: center; justify-content: center;
   flex-wrap: wrap; line-height: 1.2;
+  transform: rotate(-10deg);
 }
+.blob-cta-wrap .cta-btn:hover { transform: rotate(-10deg) translateY(2px); }
 .hero .blob-cta-wrap { width: 420px; height: 420px; top: -80px; right: -100px; }
 .page-hero .blob-cta-wrap { width: 300px; height: 300px; top: -60px; right: -80px; }
 
