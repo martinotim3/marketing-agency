@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Foxtail Inc — Bold Editorial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rust: #C1440E;
+    --rust-dark: #8F310A;
+    --cream: #F6EEE0;
+    --ink: #241812;
+    --line: #24181233;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .logo { font-family: 'Fraunces', serif; font-weight: 900; font-size: 24px; letter-spacing: -0.02em; }
+  .logo span { color: var(--rust); }
+  nav { display: flex; gap: 36px; font-size: 14px; font-weight: 500; }
+  nav a:hover { color: var(--rust); }
+  .cta-btn {
+    background: var(--ink); color: var(--cream); padding: 10px 20px;
+    border-radius: 2px; font-size: 14px; font-weight: 600;
+  }
+
+  .hero {
+    padding: 90px 0 70px;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-eyebrow {
+    font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--rust-dark); font-weight: 600; margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(48px, 8vw, 104px);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    max-width: 950px;
+  }
+  .hero h1 em { font-style: italic; font-weight: 500; color: var(--rust); }
+  .hero-sub {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-top: 40px; gap: 40px; flex-wrap: wrap;
+  }
+  .hero-sub p { max-width: 420px; font-size: 17px; color: var(--ink); opacity: 0.75; }
+
+  .marquee {
+    border-bottom: 1px solid var(--line);
+    padding: 18px 0;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--rust-dark);
+    display: flex; gap: 60px; overflow: hidden;
+  }
+
+  .services {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .section-title {
+    font-family: 'Fraunces', serif; font-weight: 900;
+    font-size: 40px; margin-bottom: 48px; letter-spacing: -0.01em;
+  }
+  .service-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .service-item {
+    background: var(--cream);
+    padding: 40px 32px;
+  }
+  .service-num { font-size: 13px; color: var(--rust); font-weight: 600; margin-bottom: 16px; }
+  .service-item h3 {
+    font-family: 'Fraunces', serif; font-size: 26px; font-weight: 600; margin-bottom: 10px;
+  }
+  .service-item p { font-size: 14px; opacity: 0.7; }
+
+  .portfolio {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .port-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+  .port-card {
+    background: var(--ink); color: var(--cream); aspect-ratio: 4/5;
+    border-radius: 4px; padding: 24px; display: flex; flex-direction: column;
+    justify-content: flex-end; position: relative; overflow: hidden;
+  }
+  .port-card:nth-child(2) { background: var(--rust); }
+  .port-card .tag { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.7; margin-bottom: 8px; }
+  .port-card h4 { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 600; }
+
+  .about {
+    padding: 90px 0;
+    border-bottom: 1px solid var(--line);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  }
+  .about h2 {
+    font-family: 'Fraunces', serif; font-weight: 600; font-style: italic;
+    font-size: 34px; line-height: 1.25;
+  }
+  .about h2 .highlight { color: var(--rust); font-style: normal; font-weight: 900; }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  .stat-num { font-family: 'Fraunces', serif; font-size: 44px; font-weight: 900; color: var(--rust); }
+  .stat-label { font-size: 13px; opacity: 0.7; margin-top: 4px; }
+
+  .contact-cta {
+    padding: 100px 0;
+    text-align: center;
+  }
+  .contact-cta h2 {
+    font-family: 'Fraunces', serif; font-weight: 900;
+    font-size: clamp(40px, 6vw, 72px); letter-spacing: -0.02em; margin-bottom: 32px;
+  }
+  .contact-cta .cta-btn { font-size: 16px; padding: 16px 36px; border-radius: 2px; }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 32px 0;
+    display: flex; justify-content: space-between; font-size: 13px; opacity: 0.6;
+  }
+
+  @media (max-width: 800px) {
+    nav { display: none; }
+    .service-grid { grid-template-columns: 1fr; }
+    .port-grid { grid-template-columns: 1fr; }
+    .about { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="logo">foxtail<span>.</span></div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="cta-btn" href="#contact">Start a project</a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-eyebrow">Full-service marketing agency</div>
+    <h1>We make brands <em>impossible</em> to ignore.</h1>
+    <div class="hero-sub">
+      <p>Foxtail Inc is a full-service marketing agency — social, SEO, ads, branding and web design under one roof, built for brands that want to move fast.</p>
+      <a class="cta-btn" href="#contact">Book a call →</a>
+    </div>
+  </section>
+</div>
+
+<div class="marquee">
+  <span>Social Media</span><span>SEO</span><span>Paid Ads</span><span>Branding</span><span>Web Design</span><span>Social Media</span><span>SEO</span><span>Paid Ads</span>
+</div>
+
+<div class="wrap">
+  <section class="services" id="services">
+    <div class="section-title">What we do</div>
+    <div class="service-grid">
+      <div class="service-item">
+        <div class="service-num">01</div>
+        <h3>Social Media</h3>
+        <p>Strategy, content and community that actually moves numbers.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-num">02</div>
+        <h3>SEO</h3>
+        <p>Technical fixes, content and links that compound over time.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-num">03</div>
+        <h3>Paid Ads</h3>
+        <p>Meta, Google and TikTok campaigns built around real ROAS.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-num">04</div>
+        <h3>Branding</h3>
+        <p>Identity systems that hold up across every touchpoint.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-num">05</div>
+        <h3>Web Design</h3>
+        <p>Fast, sharp sites that convert visitors into customers.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-num">06</div>
+        <h3>Strategy</h3>
+        <p>The plan that ties every channel back to one growth goal.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="portfolio" id="work">
+    <div class="section-title">Recent work</div>
+    <div class="port-grid">
+      <div class="port-card"><div class="tag">Branding · Web</div><h4>Nortide Coffee</h4></div>
+      <div class="port-card"><div class="tag">Social · Ads</div><h4>Pallet & Pine</h4></div>
+      <div class="port-card"><div class="tag">SEO · Strategy</div><h4>Kindle Supply Co.</h4></div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2>Ten years, one hundred+ brands, <span class="highlight">zero cookie-cutter campaigns.</span></h2>
+    <div class="about-stats">
+      <div><div class="stat-num">120+</div><div class="stat-label">Brands launched</div></div>
+      <div><div class="stat-num">340%</div><div class="stat-label">Avg. traffic lift</div></div>
+      <div><div class="stat-num">98%</div><div class="stat-label">Client retention</div></div>
+      <div><div class="stat-num">12</div><div class="stat-label">Team specialists</div></div>
+    </div>
+  </section>
+
+  <section class="contact-cta" id="contact">
+    <h2>Let's build your<br>next chapter.</h2>
+    <a class="cta-btn" href="mailto:hello@foxtailinc.com">hello@foxtailinc.com</a>
+  </section>
+
+  <footer>
+    <div>© 2026 Foxtail Inc.</div>
+    <div>Instagram · LinkedIn · X</div>
+  </footer>
+</div>
+
+</body>
+</html>

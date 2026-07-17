@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Foxtail Inc — Grid Punk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rust: #D9480F;
+    --cream: #F3EDE0;
+    --ink: #1C1917;
+    --line: #1C1917;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1200px; margin: 0 auto; border-left: 2px solid var(--line); border-right: 2px solid var(--line); }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 22px 32px; border-bottom: 2px solid var(--line);
+  }
+  .logo { font-weight: 700; font-size: 22px; text-transform: uppercase; letter-spacing: -0.02em; }
+  .logo .mono { color: var(--rust); font-size: 14px; margin-left: 4px; }
+  nav { display: flex; }
+  nav a {
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 8px 18px;
+    border-left: 1px solid var(--line);
+  }
+  nav a:hover { background: var(--ink); color: var(--cream); }
+  .cta-btn {
+    background: var(--rust); color: var(--cream); padding: 10px 20px;
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700;
+    border: 2px solid var(--ink);
+  }
+
+  .hero {
+    display: grid; grid-template-columns: 2fr 1fr; border-bottom: 2px solid var(--line);
+  }
+  .hero-main { padding: 80px 40px; border-right: 2px solid var(--line); }
+  .hero-tag {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; background: var(--ink);
+    color: var(--cream); display: inline-block; padding: 4px 10px; margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: clamp(40px, 6.5vw, 84px); font-weight: 700; line-height: 0.98;
+    letter-spacing: -0.03em; text-transform: uppercase;
+  }
+  .hero h1 .rust { color: var(--rust); }
+  .hero-side {
+    padding: 40px 28px; display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .hero-side p { font-size: 14px; line-height: 1.6; }
+  .hero-side .num { font-family: 'JetBrains Mono', monospace; font-size: 60px; font-weight: 700; color: var(--rust); }
+
+  .marquee {
+    border-bottom: 2px solid var(--line); background: var(--ink); color: var(--cream);
+    padding: 12px 0; font-family: 'JetBrains Mono', monospace; font-size: 14px;
+    display: flex; gap: 40px; white-space: nowrap;
+  }
+  .marquee span::after { content: ' //'; color: var(--rust); }
+
+  .services { border-bottom: 2px solid var(--line); }
+  .section-head {
+    padding: 24px 32px; border-bottom: 2px solid var(--line);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .section-head h2 { font-size: 28px; font-weight: 700; text-transform: uppercase; }
+  .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .service-item {
+    padding: 36px 28px; border-right: 2px solid var(--line); border-bottom: 2px solid var(--line);
+    position: relative;
+  }
+  .service-item:nth-child(3n) { border-right: none; }
+  .service-item .idx { font-family: 'JetBrains Mono', monospace; color: var(--rust); font-size: 13px; margin-bottom: 14px; }
+  .service-item h3 { font-size: 20px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
+  .service-item p { font-size: 13px; opacity: 0.7; line-height: 1.5; }
+
+  .portfolio { border-bottom: 2px solid var(--line); }
+  .port-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .port-card {
+    aspect-ratio: 1; padding: 24px; display: flex; flex-direction: column;
+    justify-content: space-between; border-right: 2px solid var(--line);
+    background: var(--ink); color: var(--cream);
+  }
+  .port-card:last-child { border-right: none; }
+  .port-card:nth-child(2) { background: var(--rust); }
+  .port-card .mono { font-size: 12px; opacity: 0.7; }
+  .port-card h4 { font-size: 24px; font-weight: 700; text-transform: uppercase; }
+
+  .about { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 2px solid var(--line); }
+  .about-text { padding: 60px 40px; border-right: 2px solid var(--line); }
+  .about-text h2 { font-size: 30px; font-weight: 700; text-transform: uppercase; line-height: 1.2; margin-bottom: 20px; }
+  .about-text h2 .rust { color: var(--rust); }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; }
+  .stat { padding: 40px 28px; border-right: 2px solid var(--line); border-bottom: 2px solid var(--line); }
+  .stat:nth-child(2n) { border-right: none; }
+  .stat:nth-last-child(-n+2) { border-bottom: none; }
+  .stat .num { font-family: 'JetBrains Mono', monospace; font-size: 40px; font-weight: 700; color: var(--rust); }
+  .stat .label { font-size: 12px; text-transform: uppercase; opacity: 0.7; margin-top: 4px; }
+
+  .contact-cta { padding: 90px 40px; text-align: center; border-bottom: 2px solid var(--line); }
+  .contact-cta h2 {
+    font-size: clamp(36px, 6vw, 68px); font-weight: 700; text-transform: uppercase;
+    letter-spacing: -0.02em; margin-bottom: 30px;
+  }
+  .contact-cta h2 .rust { color: var(--rust); }
+
+  footer {
+    padding: 20px 32px; display: flex; justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; opacity: 0.7;
+  }
+
+  @media (max-width: 800px) {
+    nav { display: none; }
+    .hero, .about, .service-grid, .port-grid, .about-stats { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="logo">FOXTAIL<span class="mono">INC</span></div>
+    <nav>
+      <a href="#services">SERVICES</a>
+      <a href="#work">WORK</a>
+      <a href="#about">ABOUT</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <a class="cta-btn" href="#contact">START →</a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-main">
+      <div class="hero-tag mono">// FULL-SERVICE MARKETING</div>
+      <h1>WE BUILD<br>BRANDS THAT<br><span class="rust">HIT DIFFERENT</span></h1>
+    </div>
+    <div class="hero-side">
+      <p>Social, SEO, ads, branding, and web design — engineered for growth, not just good looks.</p>
+      <div class="num mono">/06</div>
+    </div>
+  </section>
+
+  <div class="marquee">
+    <span>SOCIAL MEDIA</span><span>SEO</span><span>PAID ADS</span><span>BRANDING</span><span>WEB DESIGN</span><span>STRATEGY</span><span>SOCIAL MEDIA</span><span>SEO</span>
+  </div>
+
+  <section class="services" id="services">
+    <div class="section-head"><h2>Services</h2><div class="mono">[ 01 — 06 ]</div></div>
+    <div class="service-grid">
+      <div class="service-item"><div class="idx mono">01 /</div><h3>Social Media</h3><p>Strategy and content that earns attention, not just impressions.</p></div>
+      <div class="service-item"><div class="idx mono">02 /</div><h3>SEO</h3><p>Rankings built to last — technical, content, and link work.</p></div>
+      <div class="service-item"><div class="idx mono">03 /</div><h3>Paid Ads</h3><p>Meta, Google, TikTok — spend tracked to real ROAS.</p></div>
+      <div class="service-item"><div class="idx mono">04 /</div><h3>Branding</h3><p>Systems that scale across every surface, on brand, always.</p></div>
+      <div class="service-item"><div class="idx mono">05 /</div><h3>Web Design</h3><p>Fast, sharp builds engineered to convert.</p></div>
+      <div class="service-item"><div class="idx mono">06 /</div><h3>Strategy</h3><p>One roadmap. Every channel pointed the same direction.</p></div>
+    </div>
+  </section>
+
+  <section class="portfolio" id="work">
+    <div class="section-head"><h2>Work</h2><div class="mono">[ SELECTED ]</div></div>
+    <div class="port-grid">
+      <div class="port-card"><div class="mono">BRANDING / WEB</div><h4>Nortide<br>Coffee</h4></div>
+      <div class="port-card"><div class="mono">SOCIAL / ADS</div><h4>Pallet &<br>Pine</h4></div>
+      <div class="port-card"><div class="mono">SEO / STRATEGY</div><h4>Kindle<br>Supply Co.</h4></div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-text">
+      <h2>10 YEARS. <span class="rust">100+ BRANDS.</span> ZERO TEMPLATES.</h2>
+      <p style="font-size:14px; opacity:0.75; line-height:1.6;">A small senior team, no account-manager shuffle — just people obsessed with your numbers.</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat"><div class="num mono">120+</div><div class="label">Brands</div></div>
+      <div class="stat"><div class="num mono">340%</div><div class="label">Traffic Lift</div></div>
+      <div class="stat"><div class="num mono">98%</div><div class="label">Retention</div></div>
+      <div class="stat"><div class="num mono">12</div><div class="label">Specialists</div></div>
+    </div>
+  </section>
+
+  <section class="contact-cta" id="contact">
+    <h2>LET'S BUILD<br><span class="rust">SOMETHING LOUD.</span></h2>
+    <a class="cta-btn" href="mailto:hello@foxtailinc.com">hello@foxtailinc.com</a>
+  </section>
+
+  <footer>
+    <div>© 2026 FOXTAIL INC</div>
+    <div>IG / LINKEDIN / X</div>
+  </footer>
+</div>
+
+</body>
+</html>
