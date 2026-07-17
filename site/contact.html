@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Foxtail Inc</title>
+<meta name="description" content="Get in touch with Foxtail Inc — full-service marketing agency.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Caveat:wght@600;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <a class="logo" href="index.html">foxtail 🦊</a>
+    <nav>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Work</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+    <a class="cta-btn" href="contact.html">Say hi</a>
+  </header>
+
+  <section class="page-hero">
+    <div class="blob blob-1"></div>
+    <div class="page-hero-content">
+      <div class="hero-badge">👋 Let's talk</div>
+      <h1>Tell us about your <span class="script" style="font-family:'Caveat',cursive; color:var(--rust);">next project.</span></h1>
+      <p>Fill out the form and we'll get back to you within one business day.</p>
+    </div>
+  </section>
+
+  <section class="contact-layout">
+    <div class="contact-info">
+      <h3>Reach us directly</h3>
+      <div class="row"><div class="icon">📧</div><a href="mailto:hello@foxtailinc.site">hello@foxtailinc.site</a></div>
+      <div class="row"><div class="icon">📞</div><a href="tel:+10000000000">+1 (000) 000-0000</a></div>
+      <div class="row"><div class="icon">📍</div><span>Remote-first, working with brands everywhere</span></div>
+      <div class="socials">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="X">X</a>
+      </div>
+    </div>
+
+    <div class="contact-form-wrap">
+      <h3>Send us a message</h3>
+
+      <form id="contact-form" novalidate>
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="phone">Phone <span style="font-weight:400; opacity:0.6;">(optional)</span></label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel">
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject" required>
+              <option value="" disabled selected>Choose one</option>
+              <option value="General">General</option>
+              <option value="Support">Support</option>
+              <option value="Sales">Sales</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+
+        <!-- Honeypot: never shown to real users, hidden via CSS -->
+        <div class="form-group website-field">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <button type="submit" class="cta-btn" id="submit-btn">Send message</button>
+        <div class="form-msg" id="form-msg"></div>
+      </form>
+
+      <div class="form-success-panel" id="success-panel" style="display:none;">
+        <div class="emoji">🦊</div>
+        <h3>Thanks, we'll get back to you!</h3>
+        <p>We typically reply within one business day.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>© 2026 Foxtail Inc.</div>
+    <div>Instagram · LinkedIn · X</div>
+  </footer>
+</div>
+
+<script src="assets/js/contact-form.js"></script>
+</body>
+</html>
