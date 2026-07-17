@@ -49,6 +49,21 @@ nav a.active::after {
 .cta-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 .mobile-toggle { display: none; }
 
+.wave {
+  display: inline-block;
+  transform-origin: 70% 70%;
+  animation: wave 2.5s ease-in-out infinite;
+}
+.cta-btn:hover .wave { animation-play-state: paused; }
+@keyframes wave {
+  0%, 55%, 100% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+}
+
 /* Hero (home) */
 .hero { position: relative; padding: 70px 0 100px; z-index: 1; }
 .hero .blob-1 { width: 420px; height: 420px; background: var(--rust-soft); top: -80px; right: -100px; opacity: 0.35; }
