@@ -128,15 +128,21 @@ nav a.active::after {
 .port-card {
   border-radius: 28px; aspect-ratio: 4/5; padding: 26px;
   display: flex; flex-direction: column; justify-content: flex-end;
-  background: var(--rust); color: white; position: relative; overflow: hidden;
+  background: var(--rust) center/cover no-repeat; color: white; position: relative; overflow: hidden;
   transition: transform 0.25s ease;
 }
+.port-card::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(58,35,23,0) 35%, rgba(36,21,13,0.88) 100%);
+  z-index: 0;
+}
 .port-card:hover { transform: rotate(-1deg) scale(1.02); }
-.port-card.alt-1 { background: var(--ink); }
-.port-card.alt-2 { background: var(--rust-soft); }
-.port-card .tag { font-size: 12px; opacity: 0.8; margin-bottom: 6px; font-weight: 600; }
+.port-card.alt-1 { background-color: var(--ink); }
+.port-card.alt-2 { background-color: var(--rust-soft); }
+.port-card .tag, .port-card h4, .port-card p { position: relative; z-index: 1; }
+.port-card .tag { font-size: 12px; opacity: 0.9; margin-bottom: 6px; font-weight: 600; }
 .port-card h4 { font-size: 22px; font-weight: 800; }
-.port-card p { font-size: 13px; opacity: 0.85; margin-top: 8px; }
+.port-card p { font-size: 13px; opacity: 0.9; margin-top: 8px; }
 
 /* About */
 .about {
