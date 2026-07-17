@@ -49,6 +49,23 @@ nav a.active::after {
 .cta-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 .mobile-toggle { display: none; }
 
+/* Blob CTA: "Say hi" button centered inside the decorative hero circle,
+   sized 40% of the blob so it never inherits the blob's own blur/opacity. */
+.blob-cta-wrap {
+  position: absolute; z-index: 2;
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none;
+}
+.blob-cta-wrap .cta-btn {
+  pointer-events: auto;
+  width: 40%; aspect-ratio: 1; border-radius: 50%;
+  padding: 0 10%; text-align: center;
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; line-height: 1.2;
+}
+.hero .blob-cta-wrap { width: 420px; height: 420px; top: -80px; right: -100px; }
+.page-hero .blob-cta-wrap { width: 300px; height: 300px; top: -60px; right: -80px; }
+
 .wave {
   display: inline-block;
   transform-origin: 70% 70%;
