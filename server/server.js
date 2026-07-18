@@ -1,11 +1,15 @@
 require('dotenv').config();
 
+const fs = require('fs');
+const path = require('path');
 const express = require('express');
 const nodemailer = require('nodemailer');
 const rateLimit = require('express-rate-limit');
 
 const app = express();
 app.use(express.json());
+
+const CLICK_LOG_PATH = path.join(__dirname, 'clicks.log');
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_RE = /^[0-9+\-().\s]*$/;
@@ -89,6 +93,41 @@ app.post('/api/contact', contactLimiter, function (req, res) {
       console.error('Failed to send contact email:', err);
       res.status(500).json({ ok: false, error: "Couldn't send, try again or email us directly" });
     });
+});
+
+const trackLimiter = rateLimit({
+  windowMs: 60 * 1000,
+  max: 60,
+  standardHeaders: true,
+  legacyHeaders: false,
+  handler: function (req, res) {
+    res.status(429).json({ ok: false });
+  }
+});
+
+// Server-side click tracking, no client-facing read access — appends
+// one JSON line per click to clicks.log. Not exposed to the frontend.
+app.post('/api/track', trackLimiter, function (req, res) {
+  const body = req.body || {};
+  const button = typeof body.button === 'string' ? stripHeaderInjection(body.button.trim()).slice(0, 120) : '';
+  const page = typeof body.page === 'string' ? stripHeaderInjection(body.page.trim()).slice(0, 200) : '';
+
+  if (!button || !page) {
+    return res.status(200).json({ ok: true });
+  }
+
+  const entry = JSON.stringify({
+    ts: new Date().toISOString(),
+    button: button,
+    page: page,
+    ip: req.ip
+  }) + '\n';
+
+  fs.appendFile(CLICK_LOG_PATH, entry, function (err) {
+    if (err) console.error('Failed to write click log:', err);
+  });
+
+  res.status(200).json({ ok: true });
 });
 
 const PORT = 3000;
