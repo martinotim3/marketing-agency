@@ -1,8 +1,12 @@
 # Foxtail Contact Service
 
-Node/Express backend for the `foxtailinc.site` contact form. Receives POST
-`/api/contact`, validates + rate-limits + emails the submission via SMTP.
-No database, no sessions, nothing persisted.
+Node/Express backend for `foxtailinc.site`. Two routes:
+
+- `POST /api/contact` — validates + rate-limits + emails a contact-form
+  submission via SMTP. Nothing persisted.
+- `POST /api/track` — logs a CTA button click (label + page) to
+  `clicks.log` as append-only JSON lines. Server-side only, no route to
+  read it back, no database.
 
 ## Run locally
 
@@ -55,6 +59,9 @@ sudo systemctl enable --now foxtail-contact
 sudo journalctl -u foxtail-contact -f   # logs / send failures land here
 ```
 
-nginx should reverse-proxy `POST /api/contact` on `foxtailinc.site` to
-`http://127.0.0.1:3000/api/contact` — full nginx config comes in the VPS
-hosting phase.
+nginx should reverse-proxy `POST /api/contact` and `POST /api/track` on
+`foxtailinc.site` to `http://127.0.0.1:3000` — full nginx config comes in
+the VPS hosting phase.
+
+`clicks.log` lands in `WorkingDirectory` (`/var/www/foxtail-contact/clicks.log`
+in production) — `tail -f clicks.log` to watch clicks live.
