@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"c:\\\\Users\\\\Bahati\\\\PROJECTS\\\\marketing\\\\marketing-agency\" && mkdir -p docs/superpowers/specs mockups && ls)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\Bahati\\PROJECTS\\marketing\\marketing-agency\\docs\\superpowers"
+    ]
+  }
+}

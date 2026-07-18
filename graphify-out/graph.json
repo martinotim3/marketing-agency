@@ -1,0 +1,97 @@
+{
+  "nodes": [
+    {
+      "id": "file::contact_form",
+      "label": "contact-form.js",
+      "fileType": "code",
+      "sourceFile": "C:\\Users\\Bahati\\PROJECTS\\marketing\\marketing-agency\\site\\assets\\js\\contact-form.js",
+      "sourceLocation": "C:\\Users\\Bahati\\PROJECTS\\marketing\\marketing-agency\\site\\assets\\js\\contact-form.js:1"
+    },
+    {
+      "id": "contact_form::showerror",
+      "label": "showError",
+      "fileType": "code",
+      "sourceFile": "C:\\Users\\Bahati\\PROJECTS\\marketing\\marketing-agency\\site\\assets\\js\\contact-form.js",
+      "sourceLocation": "C:\\Users\\Bahati\\PROJECTS\\marketing\\marketing-agency\\site\\assets\\js\\contact-form.js:9"
+    },
+    {
+      "id": "contact_form::clearmsg",
+      "label": "clearMsg",
+      "fileType": "code",
+      "sourceFile": "C:\\Users\\Bahati\\PROJECTS\\marketing\\marketing-agency\\site\\assets\\js\\contact-form.js",
+      "sourceLocation": "C:\\Users\\Bahati\\PROJECTS\\marketing\\marketing-agency\\site\\assets\\js\\contact-form.js:15"
+    },
+    {
+      "id": "contact_form::setloading",
+      "label": "setLoading",
+      "fileType": "code",
+      "sourceFile": "C:\\Users\\Bahati\\PROJECTS\\marketing\\marketing-agency\\site\\assets\\js\\contact-form.js",
+      "sourceLocation": "C:\\Users\\Bahati\\PROJECTS\\marketing\\marketing-agency\\site\\assets\\js\\contact-form.js:20"
+    },
+    {
+      "id": "file::server",
+      "label": "server.js",
+      "fileType": "code",
+      "sourceFile": "c:\\Users\\Bahati\\PROJECTS\\marketing\\marketing-agency\\server\\server.js",
+      "sourceLocation": "c:\\Users\\Bahati\\PROJECTS\\marketing\\marketing-agency\\server\\server.js:1"
+    },
+    {
+      "id": "server::stripheaderinjection",
+      "label": "stripHeaderInjection",
+      "fileType": "code",
+      "sourceFile": "c:\\Users\\Bahati\\PROJECTS\\marketing\\marketing-agency\\server\\server.js",
+      "sourceLocation": "c:\\Users\\Bahati\\PROJECTS\\marketing\\marketing-agency\\server\\server.js:38"
+    },
+    {
+      "id": "file::track_clicks",
+      "label": "track-clicks.js",
+      "fileType": "code",
+      "sourceFile": "c:\\Users\\Bahati\\PROJECTS\\marketing\\marketing-agency\\site\\assets\\js\\track-clicks.js",
+      "sourceLocation": "c:\\Users\\Bahati\\PROJECTS\\marketing\\marketing-agency\\site\\assets\\js\\track-clicks.js:1"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file::contact_form",
+      "target": "contact_form::showerror",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "sourceFile": "c:\\Users\\Bahati\\PROJECTS\\marketing\\marketing-agency\\site\\assets\\js\\contact-form.js",
+      "sourceLocation": "c:\\Users\\Bahati\\PROJECTS\\marketing\\marketing-agency\\site\\assets\\js\\contact-form.js:9",
+      "weight": 1
+    },
+    {
+      "source": "file::contact_form",
+      "target": "contact_form::clearmsg",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "sourceFile": "c:\\Users\\Bahati\\PROJECTS\\marketing\\marketing-agency\\site\\assets\\js\\contact-form.js",
+      "sourceLocation": "c:\\Users\\Bahati\\PROJECTS\\marketing\\marketing-agency\\site\\assets\\js\\contact-form.js:15",
+      "weight": 1
+    },
+    {
+      "source": "file::contact_form",
+      "target": "contact_form::setloading",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "sourceFile": "c:\\Users\\Bahati\\PROJECTS\\marketing\\marketing-agency\\site\\assets\\js\\contact-form.js",
+      "sourceLocation": "c:\\Users\\Bahati\\PROJECTS\\marketing\\marketing-agency\\site\\assets\\js\\contact-form.js:20",
+      "weight": 1
+    },
+    {
+      "source": "file::server",
+      "target": "server::stripheaderinjection",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "sourceFile": "C:\\Users\\Bahati\\PROJECTS\\marketing\\marketing-agency\\server\\server.js",
+      "sourceLocation": "C:\\Users\\Bahati\\PROJECTS\\marketing\\marketing-agency\\server\\server.js:34",
+      "weight": 1
+    }
+  ],
+  "metadata": {
+    "files": 3,
+    "nodes": 7,
+    "edges": 4,
+    "builtAt": "2026-07-17T23:45:43.781Z"
+  }
+}
